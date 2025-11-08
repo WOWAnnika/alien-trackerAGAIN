@@ -1,36 +1,67 @@
 const Alien = require("../models/alien");
+const alienService = require("../service/alienService");
+
+
 
 exports.create = async (req, res) => {
-    const alien = new Alien(req.body);
-    await alien.save();
-    res.status(201).json(alien);
+    try{
+        const alien = await alienService.createAlien(req.body);
+        res.status(201).json(alien);
+    } catch (error) {
+        res.status(500).json({error: error.message});
+    }
 };
 
 exports.getAll = async (req, res) => {
-    const aliens = await Alien.find();
-    res.json(aliens);
+    try {
+        const aliens = await Alien.find();
+        res.status(200).json(aliens);
+    } catch (error) {
+        res.status(500).json({error: error.message});
+    }
 };
 
 exports.getById = async (req, res) => {
-    const alien = await Alien.findById(req.params.id);
-    if (!alien) return res.status(404).json({error: "No alien with this name"});
-    res.json(alien);
+    try {
+        const alien = await alienService.getAlienById(req.params.id);
+        res.status(200).json(alien);
+    } catch (error) {
+        if (error.message === "alien not found") {
+            return res.status(404).json({error: "sadasdawsdw"});
+        }
+        res.status(500).json({error: error.message});
+    }
 };
 
 exports.update = async (req, res) => {
-    const alien = await Alien.findByIdAndUpdate(req.params.id, req.body, {new : true});
-    if (!alien) return res.status(404).json({error: "Alien to update not found"});
-    res.json(alien);
+    try {
+        const alien = await Alien.findByIdAndUpdate(req.params.id, req.body, {new : true});
+        if (!alien) {
+            return res.status(404).json({error: "No alien with this name"});
+        }
+        res.status(200).json(alien);
+    } catch (error) {
+        res.status(500).json({error: error.message});
+    }
 };
 
 exports.delete = async (req, res) => {
-    const alien = await Alien.findByIdAndDelete(req.params.id);
-    if (!alien) return res.status(404).json({error: "Alien to delete not found"})
-    res.json({message: "Alien deleted"});
+    try {
+        const alien = await Alien.findByIdAndDelete(req.params.id);
+        if (!alien) {
+            return res.status(404).json({error: "Alien to delete not found"});
+        }
+        res.status(200).json({message: "Alien deleted" });
+    } catch (error) {
+        res.status(500).json({error: error.message});
+    }
 };
 
 exports.getByName = async (req, res) => {
-    const alien = await Alien.findOne({name: new RegExp('^' + req.params.name + '$', 'i')});
-    if (!alien) return res.status(404).json({error: "Alien not found"});
-    res.json(alien);
+    try {
+        const alien = await Alien.findOne({name: new RegExp('^' + req.params.name + '$', 'i')});
+        res.status(200).json(alien);
+    } catch (error) {
+        res.status(500).json({error: error.message});
+    }
 };
