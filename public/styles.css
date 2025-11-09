@@ -6,23 +6,28 @@
 
 body {
     background-color: black;
-
+    cursor: none;
 }
 
-.createCircle {
-    position: absolute;
-    background-color: #5afc03;
-    height: 320px;
-    width: 320px;
-    border-radius: 50%;
-    margin-top: 100px;
-    justify-self: center;
-    text-align: center;
-    /*fjerner scrollbar i bunden*/
-    align-items: center;
-    align-content: center;
-
+/*Gør at cursor er "væk" på alle elementer, og ikke kun når den ikke hover*/
+a, button, input, textarea, select, .menu-btn, .alien-card, .delete-btn, .submit-btn {
+    cursor: none !important;
 }
+
+/*.createCircle {*/
+/*    position: absolute;*/
+/*    background-color: #5afc03;*/
+/*    height: 320px;*/
+/*    width: 320px;*/
+/*    border-radius: 50%;*/
+/*    margin-top: 100px;*/
+/*    justify-self: center;*/
+/*    text-align: center;*/
+/*    !*fjerner scrollbar i bunden*!*/
+/*    align-items: center;*/
+/*    align-content: center;*/
+
+/*}*/
 
 .star {
     position: absolute;
@@ -112,4 +117,83 @@ body {
         filter: blur(25px) brightness(1.3);
         opacity: 0.9;
     }
+}
+
+/* ===== MENU STYLES ===== */
+.menu-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 10;
+}
+
+.menu-title {
+    color: rgb(90, 252, 3);
+    font-size: 4rem;
+    font-family: 'Courier New', monospace;
+    letter-spacing: 0.5rem;
+    text-shadow:
+        0 0 10px rgba(90, 252, 3, 0.8),
+        0 0 20px rgba(90, 252, 3, 0.6),
+        0 0 30px rgba(90, 252, 3, 0.4);
+    margin-bottom: 4rem;
+    animation: pulse-glow 3s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+    0%, 100% {
+        text-shadow:
+            0 0 10px rgba(90, 252, 3, 0.8),
+            0 0 20px rgba(90, 252, 3, 0.6),
+            0 0 30px rgba(90, 252, 3, 0.4);
+    }
+    50% {
+        text-shadow:
+            0 0 15px rgba(90, 252, 3, 1),
+            0 0 30px rgba(90, 252, 3, 0.8),
+            0 0 45px rgba(90, 252, 3, 0.6);
+    }
+}
+
+.menu-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+}
+
+.menu-btn {
+    position: relative;
+    display: block;
+    width: 300px;
+    padding: 1.5rem 2rem;
+    background: rgba(0, 0, 0, 0.6);
+    border: 2px solid rgba(90, 252, 3, 0.5);
+    color: rgb(90, 252, 3);
+    text-decoration: none;
+    font-family: 'Courier New', monospace;
+    font-size: 1.2rem;
+    letter-spacing: 0.2rem;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    box-shadow:
+        0 0 10px rgba(90, 252, 3, 0.3),
+        inset 0 0 10px rgba(90, 252, 3, 0.1);
+}
+
+.menu-btn:hover {
+    transform: translateY(-5px);
+    border-color: rgb(90, 252, 3);
+    background: rgba(90, 252, 3, 0.1);
+    box-shadow:
+        0 0 20px rgba(90, 252, 3, 0.6),
+        0 0 30px rgba(90, 252, 3, 0.4),
+        inset 0 0 15px rgba(90, 252, 3, 0.2);
+}
+
+.menu-btn .btn-text {
+    position: relative;
+    z-index: 1;
 }

@@ -1,0 +1,219 @@
+/* ===== LIST PAGE STYLES ===== */
+
+.list-container {
+    position: absolute;
+    top: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 1200px;
+    z-index: 10;
+    padding-bottom: 2rem;
+}
+
+.back-btn {
+    display: inline-block;
+    color: rgb(90, 252, 3);
+    text-decoration: none;
+    font-family: 'Courier New', monospace;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    transition: all 0.3s ease;
+    text-shadow: 0 0 5px rgba(90, 252, 3, 0.5);
+}
+
+.back-btn:hover {
+    text-shadow: 0 0 10px rgba(90, 252, 3, 0.8);
+    transform: translateX(-5px);
+}
+
+.list-title {
+    color: rgb(90, 252, 3);
+    font-size: 2.5rem;
+    font-family: 'Courier New', monospace;
+    letter-spacing: 0.3rem;
+    text-align: center;
+    text-shadow:
+        0 0 10px rgba(90, 252, 3, 0.8),
+        0 0 20px rgba(90, 252, 3, 0.6);
+    margin-bottom: 2rem;
+}
+
+.create-form {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.create-form input {
+    flex: 1;
+    min-width: 150px;
+    padding: 0.8rem;
+    background: rgba(0, 0, 0, 0.7);
+    border: 2px solid rgba(90, 252, 3, 0.5);
+    color: rgb(90, 252, 3);
+    font-family: 'Courier New', monospace;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.create-form input:focus {
+    outline: none;
+    border-color: rgb(90, 252, 3);
+    box-shadow: 0 0 10px rgba(90, 252, 3, 0.4);
+}
+
+.create-form input::placeholder {
+    color: rgba(90, 252, 3, 0.4);
+}
+
+.create-form button {
+    padding: 0.8rem 2rem;
+    background: rgba(90, 252, 3, 0.1);
+    border: 2px solid rgba(90, 252, 3, 0.5);
+    color: rgb(90, 252, 3);
+    font-family: 'Courier New', monospace;
+    font-size: 1rem;
+    letter-spacing: 0.1rem;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px rgba(90, 252, 3, 0.2);
+}
+
+.create-form button:hover {
+    border-color: rgb(90, 252, 3);
+    background: rgba(90, 252, 3, 0.2);
+    box-shadow: 0 0 20px rgba(90, 252, 3, 0.4);
+}
+
+.message {
+    display: none;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    text-align: center;
+    font-family: 'Courier New', monospace;
+}
+
+.message.success {
+    display: block;
+    background: rgba(90, 252, 3, 0.1);
+    border: 1px solid rgba(90, 252, 3, 0.5);
+    color: rgb(90, 252, 3);
+    box-shadow: 0 0 10px rgba(90, 252, 3, 0.3);
+}
+
+.message.error {
+    display: block;
+    background: rgba(252, 3, 3, 0.1);
+    border: 1px solid rgba(252, 3, 3, 0.5);
+    color: rgb(252, 3, 3);
+    box-shadow: 0 0 10px rgba(252, 3, 3, 0.3);
+}
+
+.loading {
+    color: rgb(90, 252, 3);
+    font-family: 'Courier New', monospace;
+    font-size: 1.2rem;
+    text-align: center;
+    margin: 2rem 0;
+    text-shadow: 0 0 5px rgba(90, 252, 3, 0.5);
+}
+
+.aliens-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.alien-card {
+    background: rgba(0, 0, 0, 0.7);
+    border: 2px solid rgba(90, 252, 3, 0.5);
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+    box-shadow:
+        0 0 15px rgba(90, 252, 3, 0.2),
+        inset 0 0 15px rgba(90, 252, 3, 0.05);
+}
+
+.alien-card:hover {
+    transform: translateY(-5px);
+    border-color: rgb(90, 252, 3);
+    box-shadow:
+        0 0 25px rgba(90, 252, 3, 0.4),
+        inset 0 0 20px rgba(90, 252, 3, 0.1);
+}
+
+.alien-card h3 {
+    color: rgb(90, 252, 3);
+    font-family: 'Courier New', monospace;
+    font-size: 1.5rem;
+    letter-spacing: 0.1rem;
+    margin: 0 0 1rem 0;
+    text-shadow: 0 0 5px rgba(90, 252, 3, 0.5);
+}
+
+.alien-info {
+    color: rgba(90, 252, 3, 0.8);
+    font-family: 'Courier New', monospace;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+.alien-info strong {
+    color: rgb(90, 252, 3);
+}
+
+.abilities-list {
+    list-style: none;
+    padding: 0;
+    margin: 0.5rem 0;
+}
+
+.abilities-list li {
+    color: rgba(90, 252, 3, 0.8);
+    font-family: 'Courier New', monospace;
+    font-size: 0.85rem;
+    padding: 0.25rem 0;
+}
+
+.abilities-list li::before {
+    content: "▸ ";
+    color: rgb(90, 252, 3);
+}
+
+.delete-btn {
+    width: 100%;
+    margin-top: 1rem;
+    padding: 0.8rem;
+    background: rgba(252, 3, 3, 0.1);
+    border: 2px solid rgba(252, 3, 3, 0.5);
+    color: rgb(252, 3, 3);
+    font-family: 'Courier New', monospace;
+    font-size: 0.9rem;
+    letter-spacing: 0.1rem;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px rgba(252, 3, 3, 0.2);
+}
+
+.delete-btn:hover {
+    transform: translateY(-2px);
+    border-color: rgb(252, 3, 3);
+    background: rgba(252, 3, 3, 0.2);
+    box-shadow: 0 0 20px rgba(252, 3, 3, 0.4);
+}
+
+.delete-btn:active {
+    transform: translateY(0);
+}
+
+.empty-state {
+    color: rgba(90, 252, 3, 0.6);
+    font-family: 'Courier New', monospace;
+    font-size: 1.2rem;
+    text-align: center;
+    margin: 4rem 0;
+}

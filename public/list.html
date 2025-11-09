@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alien Database - Alien Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="list-styles.css">
+</head>
+<body>
+<div class="stars"></div>
+
+<div class="ufo-wrapper">
+    <img src="img/ufo-flying.png" class="ufo" alt="Ufo flying">
+</div>
+
+<div class="orb-wrapper">
+    <div class="orb"></div>
+</div>
+
+<div class="list-container">
+    <a href="index.html" class="back-btn">← Back to Menu</a>
+
+    <h1 class="list-title">Alien Database</h1>
+
+    <form id="create-form" class="create-form">
+        <input type="text" id="name" placeholder="Name" required>
+        <input type="text" id="race" placeholder="Race" required>
+        <input type="text" id="planet" placeholder="Planet" required>
+        <input type="text" id="abilities" placeholder="Abilities (comma separated)" required>
+        <button type="submit">Create Alien</button>
+    </form>
+
+    <div id="message" class="message"></div>
+    <div id="loading" class="loading">Scanning for aliens...</div>
+
+    <div id="aliens-grid" class="aliens-grid">
+    </div>
+</div>
+
+<script src="./app.js"></script>
+<script src="./list.js"></script>
+</body>
+</html>

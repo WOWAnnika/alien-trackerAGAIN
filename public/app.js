@@ -12,11 +12,11 @@ for (let i = 1; i < 100; i++){
 }
 
 //får png og orb til at følge musen
-// document.addEventListener('mousemove', (e) => {
-//     const x = e.clientX;
-//     const y = e.clientY;
-//
-//     // Orb følger musen med en lille forsinkelse
-//     orb.style.transform = `translate(${x - 75}px, ${y - 75}px)`; // -75px for at centrere orb
-//     ufo.style.transform = `translate(${x - 40}px, ${y - 40}px)`; // centrer UFO
-// });
+ document.addEventListener('mousemove', (e) => {
+     const x = e.clientX;
+     const y = e.clientY;
+
+     // Orb følger musen med en lille forsinkelse
+     orb.style.transform = `translate(${x - 75}px, ${y - 75}px)`; // -75px for at centrere orb
+     ufo.style.transform = `translate(${x - 40}px, ${y - 40}px)`; // centrer UFO
+ });
